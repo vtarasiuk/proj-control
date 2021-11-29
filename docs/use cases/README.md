@@ -218,7 +218,7 @@
 <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_02
 
@@ -235,7 +235,7 @@ left header
         
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-end header
+    end header
 
     |Користувач|
         start
@@ -293,7 +293,7 @@ end header
 <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_03
 
@@ -310,7 +310,7 @@ left header
         
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-end header
+    end header
 
     |Користувач|
         start
@@ -366,7 +366,7 @@ end header
 <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_04
 
@@ -383,7 +383,7 @@ left header
         
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-end header
+    end header
 
     |Користувач|
         start
@@ -419,7 +419,7 @@ end header
 <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> LEAD_01
 
@@ -436,7 +436,7 @@ left header
         
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-end header
+    end header
 
     |Користувач|
         start
