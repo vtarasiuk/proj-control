@@ -2,7 +2,14 @@
 
 - ID: AUTH_01
 
-```md
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -71,11 +78,18 @@
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: AUTH_02
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -147,11 +161,18 @@
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: PM_01
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -211,14 +232,21 @@
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: PM_02
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
-  left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_02
 
@@ -286,14 +314,21 @@
 
 
 @enduml
-```
+
+</center>
 
 - ID: PM_03
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_03
 
@@ -359,14 +394,21 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: PM_04
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
- left header
+    left header
 
         <font color=000 size=18><b>ID:</b> PM_04
 
@@ -390,7 +432,7 @@ left header
         :Користувач натискає кнопку "Проекти";
     |Система|   
         :Система відправляє користувачу список проектів;
-   |Користувач|
+    |Користувач|
         
         :Користувач обирає потрібний 
         проект;
@@ -412,14 +454,21 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: LEAD_01
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
-left header
+    left header
 
         <font color=000 size=18><b>ID:</b> LEAD_01
 
@@ -483,11 +532,18 @@ left header
 
 
 @enduml
-```
+
+</center>
 
 - ID: LEAD_02
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 
 @startuml
 
@@ -552,11 +608,17 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: LEAD_03
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
 
 @startuml
 
@@ -605,11 +667,18 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: LEAD_04
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 
 @startuml
 
@@ -655,11 +724,18 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: DEV_01
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -713,11 +789,18 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: DEV_02
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -770,11 +853,18 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
 
 - ID: DEV_03
 
-```md
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
 @startuml
 
     left header
@@ -839,4 +929,5 @@ left header
         stop;
 
 @enduml
-```
+
+</center>
