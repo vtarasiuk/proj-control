@@ -67,26 +67,26 @@
   usecase "Редагувати зав- \nдання тімлідів" as EDTASK #palegreen
 
 
-  Менеджер -r-> EDPROJ
+  Менеджер -u-> EDPROJ
   
   usecase "Створити проект" as CRPROJ
   usecase "Змінити властивості \nпроекту" as EDPROJPROP
   usecase "Видалити проект" as DELPROJ
   
-  CRPROJ ..>"<<extends>>" EDPROJ
-  EDPROJPROP ..>"<<extends>>" EDPROJ
-  DELPROJ ..>"<<extends>>" EDPROJ
+  CRPROJ .d.>"<<extends>>" EDPROJ
+  EDPROJPROP "<<extends>>" .d.> EDPROJ
+  DELPROJ .d.>"<<extends>>" EDPROJ
 
 
-  Менеджер -l-> EDTASK
+  Менеджер --> EDTASK
   
   usecase "Створити завдання" as CRTLTASK
   usecase "Змінити \nзавдання" as EDTLTASK
   usecase "Видалити завдання" as DELTLTASK
   
-  CRTLTASK .u.>"<<extends>>" EDTASK
-  EDTLTASK .r.>"<<extends>>" EDTASK
-  DELTLTASK .d.>"<<extends>>" EDTASK
+  CRTLTASK "<<extends>>" .u.> EDTASK
+  EDTLTASK "<<extends>>" .u.> EDTASK
+  DELTLTASK "<<extends>>" .u.> EDTASK
   
   
 @enduml
@@ -110,26 +110,26 @@
   usecase "Редагувати зав- \nдання тімлідів" as EDTLTASK #palegreen
 
 
-  Тімлід -r-> EDPROJ
+  Тімлід -u-> EDPROJ
   
   usecase "Створити проект" as CRPROJ
   usecase "Змінити властивості \nпроекту" as EDPROJPROP
   usecase "Видалити проект" as DELPROJ
   
   CRPROJ ..>"<<extends>>" EDPROJ
-  EDPROJPROP ..>"<<extends>>" EDPROJ
-  DELPROJ ..>"<<extends>>" EDPROJ
+  EDPROJPROP "<<extends>>"..> EDPROJ
+  DELPROJ "<<extends>>"..> EDPROJ
 
 
-  Тімлід -l-> EDTLTASK
+  Тімлід -d-> EDTLTASK
   
   usecase "Створити завдання" as CRDEVTASK
   usecase "Змінити властивості \nзавдання" as EDDEVTASK
   usecase "Видалити завдання" as DELDEVTASK
 
-  CRDEVTASK ..>"<<extends>>" EDTLTASK
-  EDDEVTASK ..>"<<extends>>" EDTLTASK
-  DELDEVTASK ..>"<<extends>>" EDTLTASK
+  CRDEVTASK "<<extends>>".u.> EDTLTASK
+  EDDEVTASK "<<extends>>".u.> EDTLTASK
+  DELDEVTASK "<<extends>>".u.> EDTLTASK
 
 @enduml
 
@@ -150,13 +150,13 @@
   actor Розробник
   usecase "Переглядати \nзавдання" as VIEWTASKS #palegreen
 
-  Розробник -d-> VIEWTASKS
+  Розробник -u-> VIEWTASKS
   
   usecase "Переглянути вміст \nзавдання" as VIEWDEVTASK
   usecase "Надіслати завдання \nна перевірку" as SENDREVIEWTASK
   
-  VIEWTASKS ..>"<<extends>>" VIEWDEVTASK
-  VIEWTASKS ..>"<<extends>>" SENDREVIEWTASK
+  VIEWDEVTASK "<<extends>>"..> VIEWTASKS
+  SENDREVIEWTASK "<<extends>>"..> VIEWTASKS
   
   
 @enduml
