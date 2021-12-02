@@ -1,6 +1,172 @@
-**Діаграми прецедентів**
+### Діаграми прецедентів
 
-- ID: AUTH_01
+
+**Загальна схема**
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+@startuml
+
+  actor Користувач
+  usecase "Зареєструватися" as REG
+  usecase "Авторизуватися" as AUTH
+  
+  Користувач -u-> AUTH
+  Користувач -u-> REG
+
+  
+  actor Менеджер
+  usecase "Редагувати \nпроекти" as EDPROJ #palegreen
+  usecase "Редагувати зав- \nдання тімлідів" as EDTLTASK #palegreen
+
+  Менеджер --> EDPROJ
+  Менеджер --> EDTLTASK
+  
+  
+  actor Тімлід
+  usecase "Редагувати арте- \nфакти проекту" as EDART #palegreen
+  usecase "Редагувати зав- \nдання розробників" as EDDEVTASK #palegreen
+
+  Тімлід --> EDART
+  Тімлід --> EDDEVTASK
+  
+  
+  actor Розробник
+  usecase "Переглядати завдання" as VIEWDEVTASK #palegreen
+
+  Розробник --> VIEWDEVTASK
+  
+  
+  Менеджер -u-|> Користувач
+  Тімлід -u-|> Користувач
+  Розробник -u-|> Користувач
+  
+@enduml
+
+</center>
+
+
+**Project Manager**
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+@startuml
+
+  actor Менеджер
+  usecase "Редагувати \nпроекти" as EDPROJ #palegreen
+  usecase "Редагувати зав- \nдання тімлідів" as EDTASK #palegreen
+
+
+  Менеджер -r-> EDPROJ
+  
+  usecase "Створити проект" as CRPROJ
+  usecase "Змінити властивості \nпроекту" as EDPROJPROP
+  usecase "Видалити проект" as DELPROJ
+  
+  CRPROJ ..>"<<extends>>" EDPROJ
+  EDPROJPROP ..>"<<extends>>" EDPROJ
+  DELPROJ ..>"<<extends>>" EDPROJ
+
+
+  Менеджер -l-> EDTASK
+  
+  usecase "Створити завдання" as CRTLTASK
+  usecase "Змінити \nзавдання" as EDTLTASK
+  usecase "Видалити завдання" as DELTLTASK
+  
+  CRTLTASK .u.>"<<extends>>" EDTASK
+  EDTLTASK .r.>"<<extends>>" EDTASK
+  DELTLTASK .d.>"<<extends>>" EDTASK
+  
+  
+@enduml
+
+</center>
+
+
+**Teamlead**
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+@startuml
+
+  actor Тімлід
+  usecase "Редагувати \nпроекти" as EDPROJ #palegreen
+  usecase "Редагувати зав- \nдання тімлідів" as EDTLTASK #palegreen
+
+
+  Тімлід -r-> EDPROJ
+  
+  usecase "Створити проект" as CRPROJ
+  usecase "Змінити властивості \nпроекту" as EDPROJPROP
+  usecase "Видалити проект" as DELPROJ
+  
+  CRPROJ ..>"<<extends>>" EDPROJ
+  EDPROJPROP ..>"<<extends>>" EDPROJ
+  DELPROJ ..>"<<extends>>" EDPROJ
+
+
+  Тімлід -l-> EDTLTASK
+  
+  usecase "Створити завдання" as CRDEVTASK
+  usecase "Змінити властивості \nзавдання" as EDDEVTASK
+  usecase "Видалити завдання" as DELDEVTASK
+
+  CRDEVTASK ..>"<<extends>>" EDTLTASK
+  EDDEVTASK ..>"<<extends>>" EDTLTASK
+  DELDEVTASK ..>"<<extends>>" EDTLTASK
+
+@enduml
+
+</center>
+
+
+**Developer**
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+@startuml
+
+  actor Розробник
+  usecase "Переглядати \nзавдання" as VIEWTASKS #palegreen
+
+  Розробник -d-> VIEWTASKS
+  
+  usecase "Переглянути вміст \nзавдання" as VIEWDEVTASK
+  usecase "Надіслати завдання \nна перевірку" as SENDREVIEWTASK
+  
+  VIEWTASKS ..>"<<extends>>" VIEWDEVTASK
+  VIEWTASKS ..>"<<extends>>" SENDREVIEWTASK
+  
+  
+@enduml
+
+</center>
+
+
+### Сценарії використання
+
+**AUTH_01**
 
 
 <center style="
@@ -69,7 +235,8 @@
 
 </center>
 
-- ID: AUTH_02
+
+**AUTH_02**
 
 <center style="
     border-radius:4px;
@@ -140,7 +307,8 @@
 
 </center>
 
-- ID: PM_01
+
+**PM_01**
 
 <center style="
     border-radius:4px;
@@ -203,7 +371,8 @@
 
 </center>
 
-- ID: PM_02
+
+**PM_02**
 
 <center style="
     border-radius:4px;
@@ -278,7 +447,8 @@
 
 </center>
 
-- ID: PM_03
+
+**PM_03**
 
 <center style="
     border-radius:4px;
@@ -350,7 +520,8 @@
 
 </center>
 
-- ID: PM_04
+
+**PM_04**
 
 <center style="
     border-radius:4px;
@@ -407,7 +578,8 @@
 
 </center>
 
-- ID: LEAD_01
+
+**LEAD_01**
 
 <center style="
     border-radius:4px;
@@ -476,7 +648,8 @@
 
 </center>
 
-- ID: LEAD_02
+
+**LEAD_02**
 
 <center style="
     border-radius:4px;
@@ -552,7 +725,8 @@
 
 </center>
 
-- ID: LEAD_03
+
+**LEAD_03**
 
 <center style="
     border-radius:4px;
@@ -611,7 +785,8 @@
 
 </center>
 
-- ID: LEAD_04
+
+**LEAD_04**
 
 <center style="
     border-radius:4px;
@@ -668,7 +843,8 @@
 
 </center>
 
-- ID: DEV_01
+
+**DEV_01**
 
 <center style="
     border-radius:4px;
@@ -726,7 +902,8 @@
 
 </center>
 
-- ID: DEV_02
+
+**DEV_02**
 
 <center style="
     border-radius:4px;
@@ -783,7 +960,8 @@
 
 </center>
 
-- ID: DEV_03
+
+**DEV_03**
 
 <center style="
     border-radius:4px;
