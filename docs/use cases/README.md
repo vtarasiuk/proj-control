@@ -1,4 +1,4 @@
-### Діаграми прецедентів
+## Діаграми прецедентів
 
 
 **Загальна схема**
@@ -22,24 +22,24 @@
   
   actor Менеджер
   usecase "Редагувати \nпроекти" as EDPROJ #palegreen
-  usecase "Редагувати зав- \nдання тімлідів" as EDTLTASK #palegreen
+  usecase "Редагувати \nплани проекту" as EDPLANS #palegreen
 
   Менеджер --> EDPROJ
-  Менеджер --> EDTLTASK
+  Менеджер --> EDPLANS
   
   
   actor Тімлід
-  usecase "Редагувати арте- \nфакти проекту" as EDART #palegreen
-  usecase "Редагувати зав- \nдання розробників" as EDDEVTASK #palegreen
+  usecase "Редагувати \nартефакти" as EDART #palegreen
+  usecase "Редагувати \nзавдання" as EDTASKS #palegreen
 
   Тімлід --> EDART
-  Тімлід --> EDDEVTASK
+  Тімлід --> EDTASKS
   
   
   actor Розробник
-  usecase "Переглядати завдання" as VIEWDEVTASK #palegreen
+  usecase "Переглядати \nзавдання" as VIEWTASKS #palegreen
 
-  Розробник --> VIEWDEVTASK
+  Розробник --> VIEWTASKS
   
   
   Менеджер -u-|> Користувач
@@ -64,7 +64,7 @@
 
   actor Менеджер
   usecase "Редагувати \nпроекти" as EDPROJ #palegreen
-  usecase "Редагувати зав- \nдання тімлідів" as EDTASK #palegreen
+  usecase "Редагувати \nплани проекту" as EDPLAN #palegreen
 
 
   Менеджер -u-> EDPROJ
@@ -78,15 +78,17 @@
   DELPROJ .d.>"<<extends>>" EDPROJ
 
 
-  Менеджер --> EDTASK
+  Менеджер --> EDPLAN
   
-  usecase "Створити завдання" as CRTLTASK
-  usecase "Змінити \nзавдання" as EDTLTASK
-  usecase "Видалити завдання" as DELTLTASK
+  usecase "Створити план" as CRTLPLAN
+  usecase "Змінити план" as EDTLPLAN
+  usecase "Видалити план" as DELTLPLAN
+  usecase "Призначити\n план тімліду" as ASSIGNPLAN
   
-  CRTLTASK "<<extends>>" .u.> EDTASK
-  EDTLTASK "<<extends>>" .u.> EDTASK
-  DELTLTASK "<<extends>>" .u.> EDTASK
+  CRTLPLAN .u.>"<<extends>>" EDPLAN
+  EDTLPLAN "<<extends>>".u.> EDPLAN
+  DELTLPLAN "<<extends>>".u.> EDPLAN
+  ASSIGNPLAN .u.>"<<extends>>" EDPLAN
   
   
 @enduml
@@ -106,30 +108,34 @@
 @startuml
 
   actor Тімлід
-  usecase "Редагувати \nпроекти" as EDPROJ #palegreen
-  usecase "Редагувати зав- \nдання тімлідів" as EDTLTASK #palegreen
+  usecase "Редагувати \nзавдання" as EDTASKS #palegreen
+  usecase "Редагувати \nартефакти" as EDART #palegreen
 
 
-  Тімлід -u-> EDPROJ
+  Тімлід -u-> EDTASKS
   
-  usecase "Створити проект" as CRPROJ
-  usecase "Змінити властивості \nпроекту" as EDPROJPROP
-  usecase "Видалити проект" as DELPROJ
+  usecase "Створити \nзавдання" as CRTASK
+  usecase "Змінити \nзавдання" as EDTASK
+  usecase "Видалити \nзавдання" as DELTASK
+  usecase "Призначити \nзавдання" as ASSINGTASK
   
-  CRPROJ ..>"<<extends>>" EDPROJ
-  EDPROJPROP "<<extends>>"..> EDPROJ
-  DELPROJ "<<extends>>"..> EDPROJ
+  CRTASK "<<extends>>".d.> EDTASKS
+  EDTASK "<<extends>>".d.> EDTASKS
+  DELTASK "<<extends>>".d.> EDTASKS
+  ASSINGTASK .d.>"<<extends>>" EDTASKS
 
 
-  Тімлід -d-> EDTLTASK
+  Тімлід --> EDART
   
-  usecase "Створити завдання" as CRDEVTASK
-  usecase "Змінити властивості \nзавдання" as EDDEVTASK
-  usecase "Видалити завдання" as DELDEVTASK
-
-  CRDEVTASK "<<extends>>".u.> EDTLTASK
-  EDDEVTASK "<<extends>>".u.> EDTLTASK
-  DELDEVTASK "<<extends>>".u.> EDTLTASK
+  usecase "Створити артефакт" as CRTLPLAN
+  usecase "Змінити артефакт" as EDTLPLAN
+  usecase "Видалити артефакт" as DELTLPLAN
+  usecase "Додати артефакт \nдо завдання" as ASSIGNPLAN
+  
+  CRTLPLAN .u.>"<<extends>>" EDART
+  EDTLPLAN "<<extends>>".u.> EDART
+  DELTLPLAN "<<extends>>".u.> EDART
+  ASSIGNPLAN "<<extends>>".u.> EDART
 
 @enduml
 
@@ -164,7 +170,7 @@
 </center>
 
 
-### Сценарії використання
+## Сценарії використання
 
 **AUTH_01**
 
