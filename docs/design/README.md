@@ -56,7 +56,7 @@
   Plan.project -u-* Plan
   Plan.teamlead -r-* Plan
 
-  Task.title -u-* Task
+  Task.title -l-* Task
   Task.description -r-* Task
   Task.deadline -u-* Task
   Task.state -u-* Task
@@ -76,7 +76,8 @@
   User "1,1" -r- "0,*" Task
   User "1,1" -r- "0,*" Assignee
   Assignee "0,*" -d- "1,1" Task
-  Task "1,1" -r- "0,*" TaskArtifact
+  Task "1,1" -d- "0,*" TaskArtifact
+  TaskArtifact "0,*" -- "1,1" Artifact
 
 
   @enduml
