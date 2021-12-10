@@ -10,75 +10,80 @@
 >
 
   @startuml
-  
+
   entity Project <<ENTITY>>
   entity Project.name <<TEXT>> #ffffff
-  entity Project.author <<NUMBER>> #ffffff
 
   entity User <<ENTITY>>
   entity User.login <<TEXT>> #ffffff
   entity User.password <<TEXT>> #ffffff
   entity User.createdAt <<DATE>> #ffffff
-  entity User.role <<TEXT>> #ffffff
-  
-  entity Plan <<ENTITY>>
-  entity Plan.description <<TEXT>> #ffffff
-  entity Plan.project <<NUMBER>> #ffffff
-  entity Plan.teamlead <<NUMBER>> #ffffff
+
+  entity Collaboration <<ENTITY>>
+
+  entity Role <<ENTITY>>
+  entity Role.name <<TEXT>> #ffffff
 
   entity Task <<ENTITY>>
   entity Task.title <<TEXT>> #ffffff
   entity Task.description <<TEXT>> #ffffff
   entity Task.deadline <<DATE>> #ffffff
-  entity Task.state <<TEXT>> #ffffff
+
+  entity Action <<ENTITY>>
+  entity Action.comment <<TEXT>> #ffffff
+  entity Action.createdAt <<DATE>> #ffffff
+
+  entity State <<ENTITY>>
+  entity State.name <<TEXT>> #ffffff
 
   entity Assignee <<ENTITY>>
-  entity Assignee.task <<NUMBER>> #ffffff
-  entity Assignee.developer <<NUMBER>> #ffffff
 
-  entity TaskArtifact <<ENTITY>>
-  entity TaskArtifact.task <<NUMBER>> #ffffff
-  entity TaskArtifact.artifact <<NUMBER>> #ffffff
+  entity Attachment <<ENTITY>>
+  entity Attachment.role <<TEXT>> #ffffff
+  entity Attachment.comment <<TEXT>> #ffffff
 
   entity Artifact <<ENTITY>>
-  entity Artifact.fileKey <<TEXT>> #ffffff
+  entity Artifact.url <<TEXT>> #ffffff
 
 
   Project.name -r-* Project
-  Project.author -d-* Project
 
-  User.login -d-* User
-  User.password -d-* User
-  User.createdAt -d-* User
-  User.role -u-* User
+  User.login -u-* User
+  User.password -u-* User
+  User.createdAt -r-* User
 
-  Plan.description -u-* Plan
-  Plan.project -u-* Plan
-  Plan.teamlead -r-* Plan
+  Role.name -l-* Role
 
-  Task.title -l-* Task
-  Task.description -r-* Task
-  Task.deadline -u-* Task
-  Task.state -u-* Task
+  Task.title -d-* Task
+  Task.description -u-* Task
+  Task.deadline -l-* Task
 
-  Assignee.task -d-* Assignee
-  Assignee.developer -d-* Assignee
+  Action.comment -u-* Action
+  Action.createdAt -r-* Action
 
-  TaskArtifact.task -l-* TaskArtifact
-  TaskArtifact.artifact -l-* TaskArtifact
+  State.name -u-* State
 
-  Artifact.fileKey -l-* Artifact
+  Attachment.role -u-* Attachment
+  Attachment.comment -u-* Attachment
+
+  Artifact.url -u-* Artifact
 
 
-  Project "0,*" -r- "1,1" User
-  Project "1,1" -d- "0,*" Plan
-  Plan "0,1" -u- "0,1" User
-  User "1,1" -r- "0,*" Task
-  User "1,1" -r- "0,*" Assignee
-  Assignee "0,*" -d- "1,1" Task
-  Task "1,1" -d- "0,*" TaskArtifact
-  TaskArtifact "0,*" -- "1,1" Artifact
+  Collaboration "0,*" -l-> "1,1" Project
+  Collaboration "0,*" -d-> "1,1" User
+  Collaboration "0,*" -r-> "1,1" Role
 
+  User "1,1" <-- "0,*" Task : owner
+  User "1,1" <- "0,*" Assignee : developer
+  Assignee "0,*" --> "1,1" Task
+
+  Action "0,*" --> "1,1" State
+  Action "0,*" -u-> "1,1" User : actor
+  Action "0,*" --> "0,1" Artifact : subject_artifact
+
+  Task "1,1" <-- "0,*" Attachment
+  Task "0,1" <-- "0,*" Action : subject_task
+  Attachment "0,*" --> "1,1" Artifact
 
   @enduml
 
@@ -97,52 +102,63 @@
   
   entity Project <<ENTITY>> {
       name: TEXT
-      author: NUMBER
   }
 
   entity User <<ENTITY>> {
       login: TEXT
       password: TEXT
       createdAt: DATE
-      role: TEXT
   }
 
-  entity Plan <<ENTITY>> {
-      description: TEXT
-      project: NUMBER
-      teamlead: NUMBER
+  entity Collaboration <<ENTITY>> { }
+    
+  entity Role <<ENTITY>> {
+    name: TEXT
   }
-
+  
   entity Task <<ENTITY>> {
       title: TEXT
       description: TEXT
       deadline: DATE
-      state: TEXT
+  }
+  
+  entity Action <<ENTITY>> {
+    comment: TEXT
+    createdAt: DATE
   }
 
-  entity Assignee <<ENTITY>> {
-      task: NUMBER
-      developer: NUMBER
+  entity State <<ENTITY>> {
+    name: TEXT (enum: "TODO",\n"PROCESS", "REVIEW", "DONE")
   }
 
-  entity TaskArtifact <<ENTITY>> {
-      task: NUMBER
-      artifact: NUMBER
+  entity Assignee <<ENTITY>> { }
+
+  entity Attachment <<ENTITY>> {
+      role: TEXT
+      comment: TEXT
   }
 
   entity Artifact <<ENTITY>> {
-      fileKey: TEXT
+      url: TEXT
   }
-  
-  Project "0,*" -r- "1,1" User
-  Project "1,1" -d- "0,*" Plan
-  Plan "0,1" -u- "0,1" User
-  User "1,1" -- "0,*" Task
-  User "1,1" -r- "0,*" Assignee
-  Assignee "0,*" -- "1,1" Task
-  Task "1,1" -- "0,*" TaskArtifact
-  TaskArtifact "0,*" -- "1,1" Artifact
 
+
+  Collaboration "0,*" -l-> "1,1" Project
+  Collaboration "0,*" --> "1,1" User
+  Collaboration "0,*" -> "1,1" Role
+
+  User "1,1" <-- "0,*" Task : owner
+  User "1,1" <- "0,*" Assignee : developer
+  Assignee "0,*" --> "1,1" Task
+
+  Action "0,*" --> "1,1" State
+  Action "0,*" -u-> "1,1" User : actor
+  Action "0,*" --> "0,1" Artifact : subject_artifact
+
+  Task "1,1" <-- "0,*" Attachment
+  Task "0,1" <-- "0,*" Action : subject_task
+  Attachment "0,*" --> "1,1" Artifact
+  
   @enduml
 
 </center>
