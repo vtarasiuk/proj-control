@@ -172,6 +172,6 @@
     padding: 1em;"
 >
 
-![Alt text](./eerd-cropped.svg)
+![Alt text](./eerd.svg)
 
 </center>
