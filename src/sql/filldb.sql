@@ -139,11 +139,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `proj-control`;
-INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Add a task', '2021-06-15T02:01:45', 3, 1, NULL, 1);
-INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Create developer task', '2021-08-27T16:06:29', 1, 1, NULL, 4);
-INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Task to review artifacts', '2021-08-29T21:22:19', 5, 1, NULL, 2);
-INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Report task', '2021-11-26T08:00:02', 3, 1, NULL, 3);
-INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Create bug fix task', '2021-03-19T23:35:20', 4, 1, NULL, 5);
+INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Add a task', '2021-06-15 02:01:45', 3, 1, NULL, 1);
+INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Create developer task', '2021-08-27 16:06:29', 1, 1, NULL, 4);
+INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Task to review artifacts', '2021-08-29 21:22:19', 5, 1, NULL, 2);
+INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Report task', '2021-11-26 08:00:02', 3, 1, NULL, 3);
+INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Create bug fix task', '2021-03-19 23:35:20', 4, 1, NULL, 5);
 INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Memory leak', '2021-06-22 15:49:02', 4, 1, NULL, 6);
 INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'Add task about cube', '2021-07-21 10:27:35', 1, 1, NULL, 7);
 INSERT INTO `proj-control`.`actions` (`id`, `comment`, `createdAt`, `actor`, `state`, `subject_artifact`, `subject_task`) VALUES (DEFAULT, 'New task lorem ipsum', '2021-01-31 14:59:40', 1, 1, NULL, 8);
