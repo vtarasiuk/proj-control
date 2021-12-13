@@ -3,8 +3,7 @@ home: true
 actionText: Розпочати →
 actionLink: /intro/
 
-footer: "ECL 2.0 Licensed | Copyright © [2021] [Іван БАТУРКІН Юрій БОБАЛЬ Юлія ІОНОВА Данило ТАРАСЕНКО
-Владислав ТАРАСЮК Віталій ЯНИШИН]"
+footer: "ECL 2.0 Licensed | Copyright © [2021] [Іван БАТУРКІН Юрій БОБАЛЬ Юлія ІОНОВА Сергій ОЧЕРЕТЕНКО Владислав ТАРАСЮК Віталій ЯНИШИН]"
 ---
 
 
@@ -18,7 +17,7 @@ footer: "ECL 2.0 Licensed | Copyright © [2021] [Іван БАТУРКІН Юр�
 
 <span padding-right:5em></span> **Юлія ІОНОВА [Telegram](https://t.me/julia_io) [GitHub](https://github.com/juliion) [email](mailto:juliaionova111@gmail.com)**
 
-<span padding-right:5em></span> **Данило ТАРАСЕНКО [Telegram](https://t.me/tadanas1) [GitHub](https://github.com/tadanasi) [email](mailto:tadanasi@gmail.com)**
+<span padding-right:5em></span> **Сергій ОЧЕРЕТЕНКО [Telegram](https://t.me/OcheretenkoS) [GitHub](https://github.com/SergeyOcheretenko) [email](mailto:ocheretenko.s@gmail.com)**
 
 <span padding-right:5em></span> **Владислав ТАРАСЮК [Telegram](https://t.me/vladisrav1) [GitHub](https://github.com/vtarasiuk) [email](mailto:vladtarasuk03@gmail.com)**
 
