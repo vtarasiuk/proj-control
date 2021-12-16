@@ -1,4 +1,4 @@
-const modelsObject = require('./models/models-obj');
+const modelsObject = require('./models/modelsObj');
 const tasks = require('./models/tasks');
 
 const getData = async () => {

@@ -1,35 +1,31 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('tasks', {
+  return sequelize.define('assignee', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    title: {
-      type: DataTypes.STRING(45),
-      allowNull: true
-    },
-    description: {
-      type: DataTypes.STRING(1024),
-      allowNull: true
-    },
-    deadline: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    owner: {
+    user: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'users',
         key: 'id'
       }
+    },
+    task: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'tasks',
+        key: 'id'
+      }
     }
   }, {
     sequelize,
-    tableName: 'tasks',
+    tableName: 'assignees',
     timestamps: false,
     indexes: [
       {
@@ -41,10 +37,17 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "fk_tasks_users1_idx",
+        name: "fk_assignees_tasks1_idx",
         using: "BTREE",
         fields: [
-          { name: "owner" },
+          { name: "task" },
+        ]
+      },
+      {
+        name: "fk_assignees_users1_idx",
+        using: "BTREE",
+        fields: [
+          { name: "user" },
         ]
       },
     ]

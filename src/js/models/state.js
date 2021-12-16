@@ -1,19 +1,19 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('artifacts', {
+  return sequelize.define('state', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    url: {
-      type: DataTypes.STRING(1024),
+    name: {
+      type: DataTypes.STRING(16),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'artifacts',
+    tableName: 'states',
     timestamps: false,
     indexes: [
       {
