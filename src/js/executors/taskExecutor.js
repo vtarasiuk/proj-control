@@ -12,18 +12,21 @@ const taskExecutor = {
         return task;
     },
 
-    async update(task) {
-        await taskRepo.update({ /* ??? */ }, {
-            where: {
-              id: task.id
-            }
-          });
+    async update(id, task) {
+        await taskRepo.update(task, {
+            where: { id: id }
+        });
     },
 
     async deleteById(id) {
         await taskRepo.destroy({
-            where: { id }
+            where: { id: id }
         });
+    },
+
+    async getAll() {
+        const tasks = await taskRepo.findAll();
+        return tasks;
     }
 }
 
