@@ -1,0 +1,11 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "This project contains software for access to the database (written in JavaScript).",
+  "main": "app.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "author": "Ivan Baturkin",
+  "license": "MIT"
+}
