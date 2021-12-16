@@ -1,5 +1,5 @@
-const app = require('./app');
-const { modelsObj, sequelize } = require('./models/modelsObj');
+const app = require('../app');
+const { modelsObj, sequelize } = require('./modelsObj');
 const dotenv = require('dotenv').config();
 
 (async () => {
