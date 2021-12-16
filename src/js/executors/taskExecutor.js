@@ -2,8 +2,9 @@ const { modelsObj } = require('../api/modelsObj');
 
 const taskRepo = modelsObj.taskRepo;
 const taskExecutor = {
-    async insert(id) {
-        throw new Error('Not implemented.');
+    async insert() {
+        const newTask = taskRepo.create(/* ??? */);
+        return newTask;
     },
 
     async getById(id) {
@@ -12,13 +13,15 @@ const taskExecutor = {
     },
 
     async update() {
-        await taskRepo.update({
-            where: { id }
-        });
+        await taskRepo.update({ /* ??? */ }, {
+            where: {
+              lastName: null
+            }
+          });
     },
 
     async deleteById(id) {
-        await repo.destroy({
+        await taskRepo.destroy({
             where: { id }
         });
     }

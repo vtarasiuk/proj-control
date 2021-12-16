@@ -2,7 +2,19 @@ const taskExecutor = require('../executors/taskExecutor');
 
 const taskController = {
     async insert(req, res) {
-        throw new Error('Not implemented.');
+        const id = req.body.id;
+        const title = req.body.title;
+        const description = req.body.decription;
+        const deadline = req.body.deadline;
+        const owner = req.body.owner;
+
+        return {
+            id,
+            title,
+            description,
+            deadline,
+            owner
+        };
     },
 
     async getById(req, res) {
@@ -12,9 +24,7 @@ const taskController = {
     },
 
     async update(req, res) {
-        // await repo.update({
-        //     where: { id }
-        // });
+        throw new Error('Not implemented.');
     },
 
     async deleteById(id) {

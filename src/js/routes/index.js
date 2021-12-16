@@ -1,9 +1,10 @@
 const taskController = require("../controllers/taskController");
 
 const routes = [
-  { path: "/tasks/:id", method: "get", func: taskController.getById },
-//   { path: "/tasks/:id", method: "update", func: users.addUser },
-//   { path: "/tasks", method: "post", func: users.addUser },
+  { path: "/tasks/create", method: "post", func: taskController.insert },
+  { path: "/tasks/read/:id", method: "get", func: taskController.getById },
+  { path: "/tasks/update/", method: "put", func: taskController.update },
+  { path: "/tasks/delete/:id", method: "delete", func: taskController.deleteById },
 ];
 
 module.exports = routes;
