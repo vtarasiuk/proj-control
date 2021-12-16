@@ -1,4 +1,4 @@
-const sequelize = require('../dbConnection');
+const sequelize = require('./dbConnection');
 const initModels = require('../models/initModels');
 const modelsObj = initModels(sequelize);
 

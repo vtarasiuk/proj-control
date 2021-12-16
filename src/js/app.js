@@ -1,8 +1,7 @@
-const modelsObject = require('./models/modelsObj');
-const tasks = require('./models/tasks');
+const { modelsObj } = require('./api/modelsObj');
 
 const getData = async () => {
-    const tasksRepo = modelsObject.tasksRepo;
+    const tasksRepo = modelsObj.taskRepo;
     await tasksRepo.sync();
     const data = await tasksRepo.findAll();
     return data;
