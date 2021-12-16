@@ -1,23 +1,21 @@
-class TaskController {
-    constructor(repo) {
-        this.repo = repo;
-    }
+const taskExecutor = require('../executors/taskExecutor');
 
-    async insert() {
+const taskController = {
+    async insert(req, res) {
         throw new Error('Not implemented.');
-    }
+    },
 
-    async getById(id) {
-        const task = await this.repo.findByPk(id);
-        return task;
-    }
+    async getById(req, res) {
+        const id = req.params.id;
+        const task = await taskExecutor.getById(id);
+        res.json(task)
+    },
 
-    async update() {
-        throw new Error('Not implemented.');
+    async update(req, res) {
         // await repo.update({
         //     where: { id }
         // });
-    }
+    },
 
     async deleteById(id) {
         await repo.destroy({
@@ -26,4 +24,4 @@ class TaskController {
     }
 }
 
-module.exports = TaskController;
+module.exports = taskController;

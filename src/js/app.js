@@ -1,22 +1,15 @@
-const { modelsObj } = require('./api/modelsObj');
+const { sequelize } = require('./api/modelsObj');
+const server = require('./api/server');
+const routes = require('./routes');
 
-const getData = async () => {
-    const tasksRepo = modelsObj.taskRepo;
-    await tasksRepo.sync();
-    const data = await tasksRepo.findAll();
-    return data;
+for (const route of routes) {
+    server[route.method](route.path, route.func);
 }
 
-const getTasks = async () => {
-    const tasks = [];
-    const data = await getData();
-    for (const model of data) {
-        tasks.push(model.dataValues);
-    }
-    return tasks;
-}
+(async () => {
+  await sequelize.sync({ force: false });
 
-void async function printTasks() {
-    const tasks = await getTasks();
-    console.log(tasks);
-}();
+  server.listen(process.env.EXPRESS_PORT, () => {
+    console.log(`Server listening at port ${process.env.EXPRESS_PORT}`);
+  });
+})();
