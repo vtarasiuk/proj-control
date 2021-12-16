@@ -2,9 +2,9 @@ const { modelsObj } = require('../api/modelsObj');
 
 const taskRepo = modelsObj.taskRepo;
 const taskExecutor = {
-    async insert() {
-        const newTask = taskRepo.create(/* ??? */);
-        return newTask;
+    async insert(task) {
+        const newTask = await taskRepo.create(task);
+        return newTask.dataValues.id;
     },
 
     async getById(id) {
@@ -12,10 +12,10 @@ const taskExecutor = {
         return task;
     },
 
-    async update() {
+    async update(task) {
         await taskRepo.update({ /* ??? */ }, {
             where: {
-              lastName: null
+              id: task.id
             }
           });
     },
